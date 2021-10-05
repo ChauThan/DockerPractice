@@ -1,0 +1,15 @@
+﻿version: "3.9"
+services: 
+  api:
+    image: "chauthan/dockerpractice"
+    ports:
+      - "8080:80"
+      - "8081:443"
+    environment:
+      ASPNETCORE_URLS: "https://+;http://+"
+      ASPNETCORE_HTTPS_PORT: "8081"
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_Kestrel__Certificates__Default__Password: "pa55w0rd!"
+      ASPNETCORE_Kestrel__Certificates__Default__Path: /root/.aspnet/https/docker-practice-api.pfx
+    volumes:
+      - ${USERPROFILE}\.aspnet\https:/root/.aspnet/https/             
